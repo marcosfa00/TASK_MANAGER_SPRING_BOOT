@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>addtask</title>
+</head>
+<style>
+    /* General Styles */
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: #f8f9fa;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+
+    /* Form Styles */
+    form {
+        background-color: #ffffff;
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        width: 300px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* Input Fields */
+    input[type="text"] {
+        border: 1px solid #ced4da;
+        border-radius: 4px;
+        padding: 10px;
+        margin-bottom: 15px;
+        font-size: 16px;
+        outline: none;
+        transition: border-color 0.3s ease;
+    }
+
+    /* Input Focus */
+    input[type="text"]:focus {
+        border-color: #2d88ff;
+    }
+
+    /* Submit Button */
+    button[type="submit"] {
+        background-color: #2d88ff;
+        color: #fff;
+        border: none;
+        padding: 10px;
+        border-radius: 4px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    /* Button Hover */
+    button[type="submit"]:hover {
+        background-color: #1c6ecc;
+    }
+</style>
+<body>
+
+<form action="/" method="post">
+  <input type="text" name="title" placeholder="Title of the task" required>
+  <input type="text" name="description" placeholder="Description of the task">
+    <button type="submit">ADD</button>
+  </input>
+</form>
+
+</body>
+</html>

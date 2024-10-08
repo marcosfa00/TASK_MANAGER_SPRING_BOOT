@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>List of Task</title>
+</head>
+<style>
+    /* General Styles */
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f9;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* Header */
+    h1 {
+        text-align: center;
+        padding: 20px;
+        color: #333;
+        background-color: #2d88ff;
+        border-bottom: 5px solid #1c6ecc;
+    }
+
+    /* Task List */
+    ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 20px auto;
+        max-width: 600px;
+    }
+
+    li {
+        background-color: #fff;
+        padding: 10px 20px;
+        margin: 10px 0;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    /* Task Info */
+    li span {
+        margin-right: 20px;
+        color: #444;
+    }
+
+    /* Task Status */
+    li span.task-status {
+        color: #444;
+    }
+
+    /* Tachar texto si task.getDone() es true */
+    li.done span {
+        text-decoration: line-through; /* Tachar el texto */
+        color: green; /* Cambiar color a verde */
+    }
+
+    /* Links (Edit, Delete) */
+    a {
+        padding: 5px 10px;
+        text-decoration: none;
+        font-size: 14px;
+        border-radius: 3px;
+        color: white;
+        background-color: #2d88ff;
+        margin-left: 10px;
+    }
+
+    a:hover {
+        background-color: #1c6ecc;
+    }
+
+    /* Add Task Button */
+    a[href="/add"] {
+        display: block;
+        width: 120px;
+        margin: 20px auto;
+        text-align: center;
+        padding: 10px;
+        font-size: 16px;
+    }
+
+    a[href="/add"]:hover {
+        background-color: #1c6ecc;
+    }
+</style>
+<body>
+    <h1>TASK MANAGER</h1>
+    <ul>
+        <li th:each="task : ${tasks}" th:class="${task.getDone() ? 'done' : ''}">
+            <span th:text="${task.title}">Task Title</span>
+            <span th:text="${task.description}">Task Description</span>
+            <span class="task-status" th:text="${task.getDone().toString()}">Task Status</span>
+            <a th:href="@{'/delete/' + ${task.id}}">DELETE</a>
+            <a th:href="@{'/edit/' + ${task.id}}">EDIT</a>
+            <a th:href="@{'/done/' + ${task.id}}" >
+               COMPLETE
+            </a>
+        </li>
+
+    </ul>
+    <a href="/add">ADD TASK</a>
+</body>
+</html>
